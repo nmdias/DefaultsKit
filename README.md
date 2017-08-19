@@ -39,7 +39,9 @@ defaults.has(for: keys.nameKey) // Check if the `String` value exists
 defaults.set("foo", for: keys.nameKey) // Sets a `String` value
 ```
 
-`DefaultsKit` will handle more complex objects. Just conform to the [Codable](https://developer.apple.com/documentation/swift/codable) protocol.
+## Complex objects
+
+To persist more complex objects just conform to the [Codable](https://developer.apple.com/documentation/swift/codable) protocol.
 
 ```swift
 struct Person: Codable {
