@@ -80,7 +80,7 @@ public final class Defaults {
     ///
     /// - Parameter key: The key.
     /// - Returns: The specified key type T or nil if not found.
-    public func get<T: Decodable>(for key: Key<T>) -> T? {
+    public func get<T: Codable>(for key: Key<T>) -> T? {
         if isPrimitive(type: T.self) {
             return self.userDefaults.value(forKey: key._key) as? T
         }
