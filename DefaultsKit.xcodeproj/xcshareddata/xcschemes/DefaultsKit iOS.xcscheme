@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0AC4A9F1F43853D0070F91D"
                BuildableName = "DefaultsKit.framework"
-               BlueprintName = "DefaultsKit"
+               BlueprintName = "DefaultsKit iOS"
                ReferencedContainer = "container:DefaultsKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,8 +34,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A0AC4AA81F43853D0070F91D"
-               BuildableName = "DefaultsKitTests.xctest"
-               BlueprintName = "DefaultsKitTests"
+               BuildableName = "DefaultsKit iOS Tests.xctest"
+               BlueprintName = "DefaultsKit iOS Tests"
                ReferencedContainer = "container:DefaultsKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -45,7 +45,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0AC4A9F1F43853D0070F91D"
             BuildableName = "DefaultsKit.framework"
-            BlueprintName = "DefaultsKit"
+            BlueprintName = "DefaultsKit iOS"
             ReferencedContainer = "container:DefaultsKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -68,7 +68,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0AC4A9F1F43853D0070F91D"
             BuildableName = "DefaultsKit.framework"
-            BlueprintName = "DefaultsKit"
+            BlueprintName = "DefaultsKit iOS"
             ReferencedContainer = "container:DefaultsKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -86,7 +86,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A0AC4A9F1F43853D0070F91D"
             BuildableName = "DefaultsKit.framework"
-            BlueprintName = "DefaultsKit"
+            BlueprintName = "DefaultsKit iOS"
             ReferencedContainer = "container:DefaultsKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
