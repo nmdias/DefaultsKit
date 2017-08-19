@@ -33,7 +33,7 @@ public class Keys {
 }
 
 public final class Key<ValueType>: Keys {
-    public let _key: String
+    fileprivate let _key: String
     public init(_ key: String) {
         self._key = key
         super.init()
