@@ -23,6 +23,96 @@ class DefaultsKitTests: XCTestCase {
         self.defaults = nil
     }
     
+    func testInteger() {
+        
+        // Given
+        let value = 123
+        let key = Key<Int>("key")
+        
+        // When
+        defaults.set(value, for: key)
+        
+        // Then
+        let hasKey = defaults.has(key: key)
+        XCTAssertTrue(hasKey)
+        
+        let savedValue = defaults.get(for: key)
+        XCTAssertEqual(savedValue, value)
+        
+    }
+    
+    func testFloat() {
+        
+        // Given
+        let value: Float = 123.1
+        let key = Key<Float>("key")
+        
+        // When
+        defaults.set(value, for: key)
+        
+        // Then
+        let hasKey = defaults.has(key: key)
+        XCTAssertTrue(hasKey)
+        
+        let savedValue = defaults.get(for: key)
+        XCTAssertEqual(savedValue, value)
+        
+    }
+    
+    func testDouble() {
+        
+        // Given
+        let value: Double = 123.1
+        let key = Key<Double>("key")
+        
+        // When
+        defaults.set(value, for: key)
+        
+        // Then
+        let hasKey = defaults.has(key: key)
+        XCTAssertTrue(hasKey)
+        
+        let savedValue = defaults.get(for: key)
+        XCTAssertEqual(savedValue, value)
+        
+    }
+    
+    func testString() {
+        
+        // Given
+        let value = "a string"
+        let key = Key<String>("key")
+        
+        // When
+        defaults.set(value, for: key)
+        
+        // Then
+        let hasKey = defaults.has(key: key)
+        XCTAssertTrue(hasKey)
+        
+        let savedValue = defaults.get(for: key)
+        XCTAssertEqual(savedValue, value)
+        
+    }
+    
+    func testBool() {
+        
+        // Given
+        let value = true
+        let key = Key<Bool>("key")
+        
+        // When
+        defaults.set(value, for: key)
+        
+        // Then
+        let hasKey = defaults.has(key: key)
+        XCTAssertTrue(hasKey)
+        
+        let savedValue = defaults.get(for: key)
+        XCTAssertEqual(savedValue, value)
+        
+    }
+    
     func testHas() {
         
         // Given

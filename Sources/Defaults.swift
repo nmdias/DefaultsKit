@@ -73,7 +73,7 @@ public final class Defaults {
     /// - Parameter key: The key to look for.
     /// - Returns: A boolean value indicating if a value exists for the specified key.
     public func has<T>(key: Key<T>) -> Bool {
-        return self.userDefaults.data(forKey: key._key) != nil
+        return userDefaults.value(forKey: key._key) != nil
     }
     
     /// Returns the value associated with the specified key.
@@ -81,6 +81,10 @@ public final class Defaults {
     /// - Parameter key: The key.
     /// - Returns: The specified key type T or nil if not found.
     public func get<T: Decodable>(for key: Key<T>) -> T? {
+        if isPrimitive(type: T.self) {
+            return self.userDefaults.value(forKey: key._key) as? T
+        }
+        
         guard let data = self.userDefaults.data(forKey: key._key) else {
             return nil
         }
@@ -105,6 +109,11 @@ public final class Defaults {
     ///   - some: The value to set.
     ///   - key: The associated `Key`.
     public func set<T: Codable>(_ some: T, for key: Key<T>) {
+        if isPrimitive(type: T.self) {
+            self.userDefaults.set(some, forKey: key._key)
+            return
+        }
+        
         do {
             let encoder = JSONEncoder()
             let encoded = try encoder.encode(some)
@@ -114,6 +123,19 @@ public final class Defaults {
             #if DEGBUG
                 print(error)
             #endif
+        }
+    }
+    
+    /// Checks if a give type is primitive
+    ///
+    /// - Parameter type: The type
+    /// - Returns: A boolean value indicating if the type is primitive
+    private func isPrimitive<T>(type: T.Type) -> Bool {
+        switch type {
+        case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type:
+            return true
+        default:
+            return false
         }
     }
     
