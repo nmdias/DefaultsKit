@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'DefaultsKit'
-  s.version = '0.0.2'
+  s.version = '0.0.3'
   s.license = 'MIT'
   s.summary = 'An RSS, Atom and JSON Feed parser written in Swift'
   s.homepage = 'https://github.com/nmdias/DefaultsKit'
