@@ -6,7 +6,7 @@
 [![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
 [![swift](https://img.shields.io/badge/swift-4.0+-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
 
-DefaultsKit leverages `Swift 4`'s powerful [Codable](https://developer.apple.com/documentation/swift/codable) capabilities and uses  70≈ or so lines of code to acomplish this.
+DefaultsKit leverages `Swift 4`'s powerful [Codable](https://developer.apple.com/documentation/swift/codable) capabilities to provide a `Simple` and `Strongly Typed` wrapper on top of [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults). It uses 70≈ or so lines of code to acomplish this.
 
 Installation >> [`instructions`](https://github.com/nmdias/DefaultsKit/blob/master/INSTALL.md) <<
 
