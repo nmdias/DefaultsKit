@@ -57,8 +57,8 @@
 		A0AC4A961F43853D0070F91D = {
 			isa = PBXGroup;
 			children = (
-				A0AC4AA21F43853D0070F91D /* DefaultsKit */,
-				A0AC4AAD1F43853D0070F91D /* DefaultsKitTests */,
+				A0AC4AA21F43853D0070F91D /* Sources */,
+				A0AC4AAD1F43853D0070F91D /* Tests */,
 				A0AC4AA11F43853D0070F91D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,24 +72,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0AC4AA21F43853D0070F91D /* DefaultsKit */ = {
+		A0AC4AA21F43853D0070F91D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				A0AC4AA31F43853D0070F91D /* DefaultsKit.h */,
 				A0AC4AA41F43853D0070F91D /* Info.plist */,
 				A0AC4ABA1F4385500070F91D /* Defaults.swift */,
 			);
-			path = DefaultsKit;
+			path = Sources;
 			sourceTree = "<group>";
 		};
-		A0AC4AAD1F43853D0070F91D /* DefaultsKitTests */ = {
+		A0AC4AAD1F43853D0070F91D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				A0B195CB1F486E0000B53EC6 /* Person.swift */,
 				A0AC4AAE1F43853D0070F91D /* DefaultsKitTests.swift */,
 				A0AC4AB01F43853D0070F91D /* Info.plist */,
 			);
-			path = DefaultsKitTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,7 +347,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DefaultsKit/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmdias.DefaultsKit;
@@ -368,7 +368,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = DefaultsKit/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmdias.DefaultsKit;
@@ -383,7 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = DefaultsKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmdias.DefaultsKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -396,7 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = DefaultsKitTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmdias.DefaultsKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
