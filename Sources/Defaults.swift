@@ -24,19 +24,14 @@
 
 import Foundation
 
-/// Class wrapper for static user defaults keys. Extend this class to specify
-/// custom keys. e.g.
+/// Represents a `Key` with an associated generic value type conforming to the
+/// `Codable` protocol.
 ///
 ///     static let someKey = Key<T>("someKey")
-public class Keys {
-    fileprivate init() {}
-}
-
-public final class Key<ValueType>: Keys {
+public final class Key<ValueType: Codable> {
     fileprivate let _key: String
     public init(_ key: String) {
         self._key = key
-        super.init()
     }
 }
 
@@ -63,7 +58,7 @@ public final class Defaults {
     /// Deletes the value associated with the specified key, if any.
     ///
     /// - Parameter key: The key.
-    public func clear<T>(key: Key<T>) {
+    public func clear<ValueType>(key: Key<ValueType>) {
         self.userDefaults.set(nil, forKey: key._key)
         self.userDefaults.synchronize()
     }
@@ -72,7 +67,7 @@ public final class Defaults {
     ///
     /// - Parameter key: The key to look for.
     /// - Returns: A boolean value indicating if a value exists for the specified key.
-    public func has<T>(key: Key<T>) -> Bool {
+    public func has<ValueType>(key: Key<ValueType>) -> Bool {
         return userDefaults.value(forKey: key._key) != nil
     }
     
@@ -80,9 +75,9 @@ public final class Defaults {
     ///
     /// - Parameter key: The key.
     /// - Returns: The specified key type T or nil if not found.
-    public func get<T: Codable>(for key: Key<T>) -> T? {
-        if isPrimitive(type: T.self) {
-            return self.userDefaults.value(forKey: key._key) as? T
+    public func get<ValueType>(for key: Key<ValueType>) -> ValueType? {
+        if isPrimitive(type: ValueType.self) {
+            return self.userDefaults.value(forKey: key._key) as? ValueType
         }
         
         guard let data = self.userDefaults.data(forKey: key._key) else {
@@ -91,7 +86,7 @@ public final class Defaults {
         
         do {
             let decoder = JSONDecoder()
-            let decoded = try decoder.decode(T.self, from: data)
+            let decoded = try decoder.decode(ValueType.self, from: data)
             return decoded
         } catch {
             #if DEGBUG
@@ -108,8 +103,8 @@ public final class Defaults {
     /// - Parameters:
     ///   - some: The value to set.
     ///   - key: The associated `Key`.
-    public func set<T: Codable>(_ some: T, for key: Key<T>) {
-        if isPrimitive(type: T.self) {
+    public func set<ValueType>(_ some: ValueType, for key: Key<ValueType>) {
+        if isPrimitive(type: ValueType.self) {
             self.userDefaults.set(some, forKey: key._key)
             return
         }
@@ -130,7 +125,7 @@ public final class Defaults {
     ///
     /// - Parameter type: The type
     /// - Returns: A boolean value indicating if the type is primitive
-    private func isPrimitive<T>(type: T.Type) -> Bool {
+    private func isPrimitive<ValueType>(type: ValueType.Type) -> Bool {
         switch type {
         case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type:
             return true
