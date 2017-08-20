@@ -30,7 +30,7 @@ defaults.set("Codable FTW 😃", for: key)
 defaults.get(for: key) // Output: Codable FTW 😃
 ```
 
-### Check if key has a value:
+### Check if a key has a value:
 
 ```swift
 if defaults.has(for: key) { 
@@ -38,7 +38,7 @@ if defaults.has(for: key) {
 }
 ```
 
-## Complex objects
+### Complex objects
 
 To persist a complex object just conform to the [Codable](https://developer.apple.com/documentation/swift/codable) protocol:
 
@@ -71,7 +71,7 @@ person?.name // Bonnie Greenwell
 person?.age  // 80
 ```
 
-## Nested Objects
+### Nested Objects
 You can also use nested object as long as they conform to the `Codable` protocol:
 
 ```swift
