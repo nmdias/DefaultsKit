@@ -6,37 +6,36 @@
 [![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
 [![swift](https://img.shields.io/badge/swift-4.0+-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
 
-DefaultsKit leverages `Swift 4`'s powerful [Codable](https://developer.apple.com/documentation/swift/codable) capabilities to provide a `Simple` and `Strongly Typed` wrapper on top of [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults). It uses 70≈ or so lines of code to acomplish this.
+DefaultsKit leverages **Swift 4's** powerful [Codable](https://developer.apple.com/documentation/swift/codable) capabilities to provide a **Simple** and **Strongly Typed** wrapper on top of [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults). It uses less than 70 lines of code to acomplish this.
 
 Installation >> [`instructions`](https://github.com/nmdias/DefaultsKit/blob/master/INSTALL.md) <<
 
 ## Usage
-Here's a simple `get` example, with type inference on a complex object:
-
-```swift
-let person: Person = defaults.get(for: key)!
-```
-
-## From the beginning...
-
-Extend `Keys` with your own keys and associated value type:
-```swift
-extension Keys {
-    static let nameKey = Key<String>("nameKey")
-}
-```
 
 Instantiate, or get a `shared` instance of `Defaults`
 ```swift
 let defaults = Defaults() // or Defaults.shared
 ```
 
-Then `get`, `set` or `has` the desired key.
+Then use `set(for:)` and `get(for:)`:
 
 ```swift
-defaults.get(for: keys.nameKey) // Reads the `String` value
-defaults.has(for: keys.nameKey) // Check if the `String` value exists
-defaults.set("foo", for: keys.nameKey) // Sets a `String` value
+// Define a key
+let key = Key<String>("someKey")
+
+// Set a value
+defaults.set("Codable FTW \e/", for: key)
+
+// Read the value back
+defaults.get(for: key) // Outputs: Codable FTW \e/
+```
+
+### Check if key has a value:
+
+```swift
+if defaults.has(for: key) { 
+    // Do your thing
+}
 ```
 
 ## Complex objects
@@ -51,7 +50,7 @@ struct Person: Codable {
 }
 ```
 
-Create a `Key<T>`, then an instance of a `Codable` and call `set`.
+Create a `Key<ValueType>`, then an instance of a `Codable` and call `set(for:)`.
 
 ```swift
 let key = Key<Person>("personKey")
@@ -60,17 +59,13 @@ let person = Person(name: "Bonnie Greenwell", age: 80, children: [])
 defaults.set(person, for: key)
 ```
 
-To get the saved object:
+To read the object back call `get(for:)`:
 
 ```swift
 let person = defaults.get(for: key)
 person?.name // Bonnie Greenwell
 person?.age  // 80
 ```
-
-
-## Credits
-[SwiftyUserDefaults](https://github.com/radex/SwiftyUserDefaults) for the inspiration on Keys with an associated generic type.
 
 ## License
 
