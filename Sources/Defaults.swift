@@ -103,15 +103,15 @@ public final class Defaults {
     /// - Parameters:
     ///   - some: The value to set.
     ///   - key: The associated `Key<ValueType>`.
-    public func set<ValueType>(_ some: ValueType, for key: Key<ValueType>) {
+    public func set<ValueType>(_ value: ValueType, for key: Key<ValueType>) {
         if isPrimitive(type: ValueType.self) {
-            self.userDefaults.set(some, forKey: key._key)
+            self.userDefaults.set(value, forKey: key._key)
             return
         }
         
         do {
             let encoder = JSONEncoder()
-            let encoded = try encoder.encode(some)
+            let encoded = try encoder.encode(value)
             self.userDefaults.set(encoded, forKey: key._key)
             self.userDefaults.synchronize()
         } catch {
