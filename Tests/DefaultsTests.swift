@@ -129,7 +129,7 @@ class DefaultsKitTests: XCTestCase {
         
     }
     
-    func testHas() {
+    func testSet() {
         
         // Given
         let values = [1,2,3,4]
@@ -142,18 +142,6 @@ class DefaultsKitTests: XCTestCase {
         let hasKey = defaults.has(key)
         XCTAssertTrue(hasKey)
         
-    }
-    
-    func testSet() {
-        
-        // Given
-        let values = [1,2,3,4]
-        let key = Key<[Int]>("key")
-        
-        // When
-        defaults.set(values, for: key)
-        
-        // Then
         let savedValues = defaults.get(for: key)
         XCTAssertNotNil(savedValues)
         savedValues?.forEach({ (value) in
@@ -173,14 +161,15 @@ class DefaultsKitTests: XCTestCase {
         defaults.clear(key)
         
         // Then
+        let hasKey = defaults.has(key)
+        XCTAssertFalse(hasKey)
+        
         let savedValues = defaults.get(for: key)
         XCTAssertNil(savedValues)
         
     }
     
     func testSetObject() {
-        
-
         
         // Given
         let child = Person(name: "Anne Greenwell", age: 30, children: [])
@@ -191,6 +180,9 @@ class DefaultsKitTests: XCTestCase {
         defaults.set(person, for: key)
         
         // Then
+        let hasKey = defaults.has(key)
+        XCTAssertTrue(hasKey)
+        
         let savedPerson = defaults.get(for: key)
         XCTAssertEqual(savedPerson?.name, "Bonnie Greenwell")
         XCTAssertEqual(savedPerson?.age, 80)
