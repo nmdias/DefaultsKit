@@ -11,14 +11,11 @@
 		A0AC4AAF1F43853D0070F91D /* DefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */; };
 		A0AC4AB11F43853D0070F91D /* DefaultsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC4AA31F43853D0070F91D /* DefaultsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0AC4ABB1F4385500070F91D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4ABA1F4385500070F91D /* Defaults.swift */; };
-		A0B195CD1F48841300B53EC6 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B195CB1F486E0000B53EC6 /* Person.swift */; };
 		A0F000F61F48CEE500617715 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4ABA1F4385500070F91D /* Defaults.swift */; };
 		A0F001041F48CF9D00617715 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4ABA1F4385500070F91D /* Defaults.swift */; };
 		A0F0011E1F48D0BD00617715 /* DefaultsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F000E91F48CECE00617715 /* DefaultsKit.framework */; };
-		A0F001261F48D12900617715 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B195CB1F486E0000B53EC6 /* Person.swift */; };
 		A0F001271F48D12900617715 /* DefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */; };
 		A0F001311F48D34200617715 /* DefaultsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F000FC1F48CF8200617715 /* DefaultsKit.framework */; };
-		A0F001371F48D35700617715 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B195CB1F486E0000B53EC6 /* Person.swift */; };
 		A0F001381F48D35700617715 /* DefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +51,6 @@
 		A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsTests.swift; sourceTree = "<group>"; };
 		A0AC4AB01F43853D0070F91D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0AC4ABA1F4385500070F91D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
-		A0B195CB1F486E0000B53EC6 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		A0F000E91F48CECE00617715 /* DefaultsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DefaultsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F000FC1F48CF8200617715 /* DefaultsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DefaultsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F001191F48D0BD00617715 /* DefaultsKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DefaultsKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,7 +141,6 @@
 		A0AC4AAD1F43853D0070F91D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A0B195CB1F486E0000B53EC6 /* Person.swift */,
 				A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */,
 				A0AC4AB01F43853D0070F91D /* Info.plist */,
 			);
@@ -400,7 +395,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0B195CD1F48841300B53EC6 /* Person.swift in Sources */,
 				A0AC4AAF1F43853D0070F91D /* DefaultsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,7 +420,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F001271F48D12900617715 /* DefaultsTests.swift in Sources */,
-				A0F001261F48D12900617715 /* Person.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +428,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F001381F48D35700617715 /* DefaultsTests.swift in Sources */,
-				A0F001371F48D35700617715 /* Person.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -170,11 +170,18 @@ class DefaultsKitTests: XCTestCase {
     }
     
     func testSetObject() {
+     
+        // Mocks
+        struct PersonMock: Codable {
+            let name: String
+            let age: Int
+            let children: [PersonMock]
+        }
         
         // Given
-        let child = Person(name: "Anne Greenwell", age: 30, children: [])
-        let person = Person(name: "Bonnie Greenwell", age: 80, children: [child])
-        let key = Key<Person>("personKey")
+        let child = PersonMock(name: "Anne Greenwell", age: 30, children: [])
+        let person = PersonMock(name: "Bonnie Greenwell", age: 80, children: [child])
+        let key = Key<PersonMock>("personKey")
         
         // When
         defaults.set(person, for: key)
