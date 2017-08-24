@@ -58,7 +58,7 @@ public final class Defaults {
     /// Deletes the value associated with the specified key, if any.
     ///
     /// - Parameter key: The key.
-    public func clear<ValueType>(key: Key<ValueType>) {
+    public func clear<ValueType>(_ key: Key<ValueType>) {
         self.userDefaults.set(nil, forKey: key._key)
         self.userDefaults.synchronize()
     }

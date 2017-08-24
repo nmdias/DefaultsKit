@@ -170,7 +170,7 @@ class DefaultsKitTests: XCTestCase {
         
         // When
         defaults.set(values, for: key)
-        defaults.clear(key: key)
+        defaults.clear(key)
         
         // Then
         let savedValues = defaults.get(for: key)
