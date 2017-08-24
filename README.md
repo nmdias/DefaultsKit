@@ -6,7 +6,7 @@
 [![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
 [![swift](https://img.shields.io/badge/swift-4.0+-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
 
-DefaultsKit leverages **Swift 4's** powerful [Codable](https://developer.apple.com/documentation/swift/codable) capabilities to provide a **Simple** and **Strongly Typed** wrapper on top of [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults). It uses less than 70 lines of code to acomplish this.
+DefaultsKit leverages **Swift 4**'s powerful [Codable](https://developer.apple.com/documentation/swift/codable) capabilities to provide a **Simple** and **Strongly Typed** wrapper on top of [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults). It uses less than 70 lines of code to acomplish this.
 
 Installation >> [`instructions`](https://github.com/nmdias/DefaultsKit/blob/master/INSTALL.md) <<
 
@@ -33,14 +33,15 @@ defaults.get(for: key) // Output: Codable FTW 😃
 ### Check if a key has a value:
 
 ```swift
-if defaults.has(for: key) { 
+if defaults.has(key) { 
     // Do your thing
 }
 ```
+> If you just need to know that a key/value pair exists, **without actually using the value**, use the `has()` method instead of the optional `get(for:key)`. For complex objects it will prevent any unnecessary deserialization. 
 
 ### Complex objects
 
-To persist a complex object just conform to the [Codable](https://developer.apple.com/documentation/swift/codable) protocol:
+To store a complex object just conform to the [Codable](https://developer.apple.com/documentation/swift/codable) protocol:
 
 ```swift
 struct Person: Codable {
@@ -72,7 +73,7 @@ person?.age  // 80
 ```
 
 ### Nested Objects
-You can also use nested object as long as they conform to the `Codable` protocol:
+You can also use nested objects as long as they conform to the `Codable` protocol:
 
 ```swift
 enum Pet: String, Codable {
