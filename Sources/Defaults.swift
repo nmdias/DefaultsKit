@@ -27,7 +27,7 @@ import Foundation
 /// Represents a `Key` with an associated generic value type conforming to the
 /// `Codable` protocol.
 ///
-///     static let someKey = Key<T>("someKey")
+///     static let someKey = Key<ValueType>("someKey")
 public final class Key<ValueType: Codable> {
     fileprivate let _key: String
     public init(_ key: String) {
@@ -38,19 +38,19 @@ public final class Key<ValueType: Codable> {
 /// Provides strongly typed values associated with the lifetime
 /// of an application. Apropriate for user preferences.
 /// - Warning
-/// Shoud not be used to store sensitive information that could compromise
-/// the application or the user's security.
+/// These should not be used to store sensitive information that could compromise
+/// the application or the user's security and privacy.
 public final class Defaults {
     
     private var userDefaults: UserDefaults
     
-    /// Shared instance of `Settings`, used for ad-hoc settings throughout
-    /// the app.
+    /// Shared instance of `Defaults`, used for ad-hoc access to the user's
+    /// defaults database throughout the app.
     public static let shared = Defaults()
     
-    /// An instance of Settings with the specified `UserDefaults` instance
+    /// An instance of `Defaults` with the specified `UserDefaults` instance.
     ///
-    /// - Parameter userDefaults: The UserDefaults
+    /// - Parameter userDefaults: The UserDefaults.
     public init(userDefaults: UserDefaults = UserDefaults.standard) {
         self.userDefaults = userDefaults
     }
@@ -74,7 +74,7 @@ public final class Defaults {
     /// Returns the value associated with the specified key.
     ///
     /// - Parameter key: The key.
-    /// - Returns: The specified key type T or nil if not found.
+    /// - Returns: A `ValueType` or nil if the key was not found.
     public func get<ValueType>(for key: Key<ValueType>) -> ValueType? {
         if isPrimitive(type: ValueType.self) {
             return self.userDefaults.value(forKey: key._key) as? ValueType
@@ -102,7 +102,7 @@ public final class Defaults {
     ///
     /// - Parameters:
     ///   - some: The value to set.
-    ///   - key: The associated `Key`.
+    ///   - key: The associated `Key<ValueType>`.
     public func set<ValueType>(_ some: ValueType, for key: Key<ValueType>) {
         if isPrimitive(type: ValueType.self) {
             self.userDefaults.set(some, forKey: key._key)
@@ -121,10 +121,10 @@ public final class Defaults {
         }
     }
     
-    /// Checks if a give type is primitive
+    /// Checks if a given type is primitive.
     ///
-    /// - Parameter type: The type
-    /// - Returns: A boolean value indicating if the type is primitive
+    /// - Parameter type: The type.
+    /// - Returns: A boolean value indicating if the type is primitive.
     private func isPrimitive<ValueType>(type: ValueType.Type) -> Bool {
         switch type {
         case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type:
