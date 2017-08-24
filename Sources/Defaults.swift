@@ -67,7 +67,7 @@ public final class Defaults {
     ///
     /// - Parameter key: The key to look for.
     /// - Returns: A boolean value indicating if a value exists for the specified key.
-    public func has<ValueType>(key: Key<ValueType>) -> Bool {
+    public func has<ValueType>(_ key: Key<ValueType>) -> Bool {
         return userDefaults.value(forKey: key._key) != nil
     }
     

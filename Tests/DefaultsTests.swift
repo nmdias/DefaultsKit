@@ -49,7 +49,7 @@ class DefaultsKitTests: XCTestCase {
         defaults.set(value, for: key)
         
         // Then
-        let hasKey = defaults.has(key: key)
+        let hasKey = defaults.has(key)
         XCTAssertTrue(hasKey)
         
         let savedValue = defaults.get(for: key)
@@ -67,7 +67,7 @@ class DefaultsKitTests: XCTestCase {
         defaults.set(value, for: key)
         
         // Then
-        let hasKey = defaults.has(key: key)
+        let hasKey = defaults.has(key)
         XCTAssertTrue(hasKey)
         
         let savedValue = defaults.get(for: key)
@@ -85,7 +85,7 @@ class DefaultsKitTests: XCTestCase {
         defaults.set(value, for: key)
         
         // Then
-        let hasKey = defaults.has(key: key)
+        let hasKey = defaults.has(key)
         XCTAssertTrue(hasKey)
         
         let savedValue = defaults.get(for: key)
@@ -103,7 +103,7 @@ class DefaultsKitTests: XCTestCase {
         defaults.set(value, for: key)
         
         // Then
-        let hasKey = defaults.has(key: key)
+        let hasKey = defaults.has(key)
         XCTAssertTrue(hasKey)
         
         let savedValue = defaults.get(for: key)
@@ -121,7 +121,7 @@ class DefaultsKitTests: XCTestCase {
         defaults.set(value, for: key)
         
         // Then
-        let hasKey = defaults.has(key: key)
+        let hasKey = defaults.has(key)
         XCTAssertTrue(hasKey)
         
         let savedValue = defaults.get(for: key)
@@ -139,7 +139,7 @@ class DefaultsKitTests: XCTestCase {
         defaults.set(values, for: key)
         
         // Then
-        let hasKey = defaults.has(key: key)
+        let hasKey = defaults.has(key)
         XCTAssertTrue(hasKey)
         
     }
@@ -179,6 +179,8 @@ class DefaultsKitTests: XCTestCase {
     }
     
     func testSetObject() {
+        
+
         
         // Given
         let child = Person(name: "Anne Greenwell", age: 30, children: [])
