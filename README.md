@@ -101,3 +101,9 @@ person?.pets.first  // cat
 ## License
 
 DefaultsKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/DefaultsKit/blob/master/LICENSE) for details.
+
+### Help Wanted
+#### [Translate README to Chinese](https://github.com/nmdias/DefaultsKit/issues/1)
+Chinese is the #1 spoken language in the world and I'd love to have DefaultsKit be more inclusive, unfortunately I don't speak Chinese. If you know chinese, and would like to help out, please see [issue #1](https://github.com/nmdias/DefaultsKit/issues/1)
+
+Thank you 🙏
