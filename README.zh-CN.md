@@ -10,7 +10,7 @@
 
 如何安装 >> [`指南`](https://github.com/nmdias/DefaultsKit/blob/master/INSTALL.md) <<
 
-DefaultsKit 是一个利用 Swift4 强大的 Codable，在 UserDefaults 基础上提供一层简单且强大的封装。它仅使用少于70行代码来实现这些功能。
+DefaultsKit 是一个利用 Swift4 强大的 Codable，在 UserDefaults 基础上提供一层简单且强大的封装。它仅使用少于 70 行代码来实现这些功能。
 
 ## 使用说明
 
@@ -70,7 +70,7 @@ person?.age  // 80
 ```
 ### 嵌套对象的存储
 
-只要是遵循 Codable 协议的对象，你就可以嵌套地使用它们。
+只要是遵循 Codable 协议的对象，你都可以嵌套地使用它们。
 
 ```swift
 enum Pet: String, Codable {
@@ -97,7 +97,7 @@ person?.pets.first  // cat
 
 ## 开源协议
 
-DefaultsKit 使用 MIT 协议。更多内容可以查看 [LICENSE](https://github.com/nmdias/DefaultsKit/blob/master/LICENSE)。
+DefaultsKit 使用 MIT 协议，更多内容可以查看 [LICENSE](https://github.com/nmdias/DefaultsKit/blob/master/LICENSE)。
 
 ### 寻求帮助
 #### [Review/Translate this file to Chinese](https://github.com/nmdias/DefaultsKit/issues/1)
