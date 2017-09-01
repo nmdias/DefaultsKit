@@ -89,7 +89,7 @@ public final class Defaults {
             let decoded = try decoder.decode(ValueType.self, from: data)
             return decoded
         } catch {
-            #if DEGBUG
+            #if DEBUG
                 print(error)
             #endif
         }
@@ -115,7 +115,7 @@ public final class Defaults {
             self.userDefaults.set(encoded, forKey: key._key)
             self.userDefaults.synchronize()
         } catch {
-            #if DEGBUG
+            #if DEBUG
                 print(error)
             #endif
         }
