@@ -127,7 +127,7 @@ public final class Defaults {
     /// - Returns: A boolean value indicating if the type is primitive.
     private func isPrimitive<ValueType>(type: ValueType.Type) -> Bool {
         switch type {
-        case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type:
+        case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type, is Date.Type:
             return true
         default:
             return false
