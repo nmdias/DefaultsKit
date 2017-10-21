@@ -76,7 +76,7 @@ public final class Defaults {
     /// - Parameter key: The key.
     /// - Returns: A `ValueType` or nil if the key was not found.
     public func get<ValueType>(for key: Key<ValueType>) -> ValueType? {
-        if isPrimitive(type: ValueType.self) {
+        if isSwiftCodableType(ValueType.self) || isFoundationCodableType(ValueType.self) {
             return self.userDefaults.value(forKey: key._key) as? ValueType
         }
         
@@ -104,7 +104,7 @@ public final class Defaults {
     ///   - some: The value to set.
     ///   - key: The associated `Key<ValueType>`.
     public func set<ValueType>(_ value: ValueType, for key: Key<ValueType>) {
-        if isPrimitive(type: ValueType.self) {
+        if isSwiftCodableType(ValueType.self) || isFoundationCodableType(ValueType.self) {
             self.userDefaults.set(value, forKey: key._key)
             return
         }
@@ -121,13 +121,27 @@ public final class Defaults {
         }
     }
     
-    /// Checks if a given type is primitive.
+    /// Checks if the specified type is a Codable from the Swift standard library.
     ///
     /// - Parameter type: The type.
-    /// - Returns: A boolean value indicating if the type is primitive.
-    private func isPrimitive<ValueType>(type: ValueType.Type) -> Bool {
+    /// - Returns: A boolean value.
+    private func isSwiftCodableType<ValueType>(_ type: ValueType.Type) -> Bool {
         switch type {
-        case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type, is Date.Type:
+        case is String.Type, is Bool.Type, is Int.Type, is Float.Type, is Double.Type:
+            return true
+        default:
+            return false
+        }
+    }
+    
+    /// Checks if the specified type is a Codable, from the Swift's core libraries
+    /// Foundation framework.
+    ///
+    /// - Parameter type: The type.
+    /// - Returns: A boolean value.
+    private func isFoundationCodableType<ValueType>(_ type: ValueType.Type) -> Bool {
+        switch type {
+        case is Date.Type:
             return true
         default:
             return false
