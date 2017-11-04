@@ -31,7 +31,7 @@ import Foundation
 public final class Key<ValueType: Codable> {
     fileprivate let _key: String
     public init(_ key: String) {
-        self._key = key
+        _key = key
     }
 }
 
@@ -59,8 +59,8 @@ public final class Defaults {
     ///
     /// - Parameter key: The key.
     public func clear<ValueType>(_ key: Key<ValueType>) {
-        self.userDefaults.set(nil, forKey: key._key)
-        self.userDefaults.synchronize()
+        userDefaults.set(nil, forKey: key._key)
+        userDefaults.synchronize()
     }
     
     /// Checks if there is a value associated with the specified key.
@@ -77,10 +77,10 @@ public final class Defaults {
     /// - Returns: A `ValueType` or nil if the key was not found.
     public func get<ValueType>(for key: Key<ValueType>) -> ValueType? {
         if isSwiftCodableType(ValueType.self) || isFoundationCodableType(ValueType.self) {
-            return self.userDefaults.value(forKey: key._key) as? ValueType
+            return userDefaults.value(forKey: key._key) as? ValueType
         }
         
-        guard let data = self.userDefaults.data(forKey: key._key) else {
+        guard let data = userDefaults.data(forKey: key._key) else {
             return nil
         }
         
@@ -105,15 +105,15 @@ public final class Defaults {
     ///   - key: The associated `Key<ValueType>`.
     public func set<ValueType>(_ value: ValueType, for key: Key<ValueType>) {
         if isSwiftCodableType(ValueType.self) || isFoundationCodableType(ValueType.self) {
-            self.userDefaults.set(value, forKey: key._key)
+            userDefaults.set(value, forKey: key._key)
             return
         }
         
         do {
             let encoder = JSONEncoder()
             let encoded = try encoder.encode(value)
-            self.userDefaults.set(encoded, forKey: key._key)
-            self.userDefaults.synchronize()
+            userDefaults.set(encoded, forKey: key._key)
+            userDefaults.synchronize()
         } catch {
             #if DEBUG
                 print(error)
