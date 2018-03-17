@@ -172,7 +172,7 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let values = [1,2,3,4]
-        let key = Key<[Int]>("key")
+        let key = Key<[Int]>("test value of key at testClear()")
         
         // When
         defaults.set(values, for: key)
@@ -214,5 +214,88 @@ class DefaultsKitTests: XCTestCase {
         XCTAssertEqual(savedPerson?.children.first?.name, "Anne Greenwell")
         XCTAssertEqual(savedPerson?.children.first?.age, 30)
     }
-    
+
+    func testAutoProperty(){
+
+        //basic test
+        defaults.autoStringProperty = "string value"
+        XCTAssertTrue(defaults.has(Key<String>("autoStringProperty")))
+        XCTAssertEqual(Defaults.shared.autoStringProperty,"string value")
+
+        //test default value
+        XCTAssertTrue(Defaults.shared.autoStringPropertyWithDefaultValue != nil)
+        XCTAssertTrue(defaults.has(Key<String>("autoStringPropertyWithDefaultValue")))
+        XCTAssertTrue(
+               defaults.autoStringPropertyWithDefaultValue == Defaults.testValue_autoStringPropertyWithDefaultValue_defaultValue
+                || defaults.autoStringPropertyWithDefaultValue == Defaults.testValue_autoStringPropertyWithDefaultValue_newValue
+        )
+
+        defaults.autoStringPropertyWithDefaultValue = Defaults.testValue_autoStringPropertyWithDefaultValue_newValue
+        XCTAssertEqual(Defaults.shared.autoStringPropertyWithDefaultValue, Defaults.testValue_autoStringPropertyWithDefaultValue_newValue)
+
+        //test custom value type with optional
+        XCTAssertTrue(defaults.autoCustomOptionalProperty == nil)
+        XCTAssertFalse(defaults.has(Key<CustomValueType>("autoCustomOptionalProperty")))
+
+        //test for a case without default value
+        defaults.autoCustomOptionalProperty = CustomValueType()
+        XCTAssertTrue(defaults.autoCustomOptionalProperty != nil)
+        defaults.autoCustomOptionalProperty = nil
+        XCTAssertTrue(defaults.autoCustomOptionalProperty == nil)
+
+        //test for a case with default setter's value
+        defaults.autoCustomOptionalPropertySetterDefaultValue = nil
+        XCTAssertTrue(defaults.autoCustomOptionalPropertySetterDefaultValue != nil)
+        XCTAssertTrue(defaults.autoCustomOptionalPropertyGetterDefaultValue != nil)
+
+        //test custom value type with non optional
+        XCTAssertTrue(defaults.autoCustomNonOptionalProperty != nil)
+        XCTAssertTrue(defaults.autoCustomNonOptionalProperty.key == "value")
+        XCTAssertTrue(defaults.has(Key<CustomValueType>("autoCustomNonOptionalProperty")))
+    }
+}
+
+/*
+    testAutoPropertyExtension
+*/
+struct CustomValueType: Codable{
+    var key:String = "value"
+}
+
+extension Defaults: DefaultsAutoProperty {
+    fileprivate static var testValue_autoStringPropertyWithDefaultValue_defaultValue:String{
+        return "default string value"
+    }
+    fileprivate static var testValue_autoStringPropertyWithDefaultValue_newValue:String{
+        return "new string value"
+    }
+
+    var autoStringProperty: String? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+    var autoDateProperty: Date? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+
+    // default value with 'or'
+    var autoStringPropertyWithDefaultValue: String? {
+        set(newValue){ set(newValue) } get{ return get(or:"default string value") }
+    }
+    // non-optional - must define lazily default value with the keyword 'or'
+    var autoCustomNonOptionalProperty: CustomValueType {
+        set(newValue){ set(newValue) } get{ return get(or: CustomValueType()) }
+    }
+    // optional - there are 4 ways with/without default value
+    var autoCustomOptionalProperty: CustomValueType? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+    var autoCustomOptionalPropertySetterDefaultValue: CustomValueType? {
+        set(newValue){ set(newValue, or: CustomValueType()) } get{ return get() }
+    }
+    var autoCustomOptionalPropertyGetterDefaultValue: CustomValueType? {
+        set(newValue){ set(newValue) } get{ return get(or:CustomValueType()) }
+    }
+    var autoCustomOptionalPropertySetterGetterDefaultValue: CustomValueType? {
+        set(newValue){ set(newValue, or: CustomValueType()) } get{ return get(or: CustomValueType()) }
+    }
 }

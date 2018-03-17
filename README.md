@@ -100,6 +100,51 @@ person?.name        // Claire
 person?.pets.first  // cat
 ```
 
+
+### Auto Property
+Make your pre-defined custom properties for your project with Defaults.
+
+An example to use with basic Codable types:
+```swift
+extension Defaults: DefaultsAutoProperty {
+    public var autoStringProperty: String? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+    public var autoDateProperty: Date? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+}
+```
+
+So you can use Defaults like this:
+```swift
+Defaults.shared.autoStringProperty = "new value will persist"
+```
+
+And also can use like this together with the default value with various codable types and CustomValueType:
+```swift
+public struct CustomValueType: Codable{
+    var key:String = "value"
+}
+extension Defaults: DefaultsAutoProperty {
+    // default value with 'or'
+    public var autoStringPropertyWithDefaultValue: String? {
+        set(newValue){ set(newValue) } get{ return get(or:"default string value") }
+    }
+    // non-optional - must define the default value with the keyword 'or'
+    public var autoCustomNonOptionalProperty: CustomValueType {
+        set(newValue){ set(newValue) } get{ return get(or: CustomValueType()) }
+    }
+    // optional with/without setter default value
+    public var autoCustomOptionalProperty: CustomValueType? {
+        set(newValue){ set(newValue) } get{ return get() }
+    }
+    public var autoCustomOptionalPropertySetterDefaultValue: CustomValueType? {
+        set(newValue){ set(newValue, or: CustomValueType()) } get{ return get() }
+    }
+}
+```
+
 ## License
 
 DefaultsKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/DefaultsKit/blob/master/LICENSE) for details.
