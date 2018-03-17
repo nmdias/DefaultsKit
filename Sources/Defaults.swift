@@ -150,3 +150,57 @@ public final class Defaults {
     
 }
 
+
+/*
+    DefaultsAutoProperty protocol extension
+    - Contributed by Taeho Lee (github.com/metasmile)
+*/
+public protocol DefaultsAutoProperty {}
+public extension DefaultsAutoProperty where Self:Defaults{
+
+    /// Sets a newValue automatically associated with the current function(key) name.
+    /// If newValue is nil, the key in UserDefaults will be deleted.
+    ///
+    /// - Parameters:
+    ///   - newValue: The value to set.
+    ///   - or: default value. Non-Optional.
+    ///   - key: private key name. it will set automatically via #function macro.
+    func set<ValueType:Codable>(_ newValue:ValueType?=nil, or:ValueType, key:String=#function){
+        set(newValue ?? or, key: key)
+    }
+    // Alias set function:
+    func set<ValueType:Codable>(_ newValue:ValueType?=nil, key:String=#function){
+        if let newValue = newValue{
+            set(newValue, for: Key<ValueType>(key))
+        }else{
+            clear(Key<ValueType>(key))
+        }
+    }
+
+    /// Returns the value or default value associated with the specified key.
+    ///
+    /// - Parameter
+    ///   - or: default value.
+    ///   - key: private key name. it will set automatically via #function macro.
+    /// - Returns: A `ValueType` or nil if the key was not found.
+    func get<ValueType:Codable>(or:ValueType?=nil, key:String=#function) -> ValueType?{
+        // value is available
+        if let gotValue = get(for: Key<ValueType>(key)){
+            return gotValue
+        }
+        // persists default value
+        if let gotOr = or{
+            set(nil, or:gotOr, key: key) // set to guarantee
+            return gotOr
+        }
+        // no value + no pre-defined default value
+        return nil
+    }
+    func get<ValueType:Codable>(or:ValueType, key:String=#function) -> ValueType{
+        if let _or = get(or:Optional<ValueType>(or), key: key){
+            return _or
+        }
+        assert(false, "the default value \(String(describing:or)) of 'or' was not persisted.")
+        return or
+    }
+}
