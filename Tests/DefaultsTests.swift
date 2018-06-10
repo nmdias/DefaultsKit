@@ -43,16 +43,15 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let value = 123
-        let key = Key<Int>("key")
         
         // When
-        defaults.set(value, for: key)
+        defaults.set(value, for: .integerKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.integerKey)
         XCTAssertTrue(hasKey)
         
-        let savedValue = defaults.get(for: key)
+        let savedValue = defaults.get(for: .integerKey)
         XCTAssertEqual(savedValue, value)
         
     }
@@ -61,16 +60,15 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let value: Float = 123.1
-        let key = Key<Float>("key")
         
         // When
-        defaults.set(value, for: key)
+        defaults.set(value, for: .floatKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.floatKey)
         XCTAssertTrue(hasKey)
         
-        let savedValue = defaults.get(for: key)
+        let savedValue = defaults.get(for: .floatKey)
         XCTAssertEqual(savedValue, value)
         
     }
@@ -79,16 +77,15 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let value: Double = 123.1
-        let key = Key<Double>("key")
         
         // When
-        defaults.set(value, for: key)
+        defaults.set(value, for: .doubleKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.doubleKey)
         XCTAssertTrue(hasKey)
         
-        let savedValue = defaults.get(for: key)
+        let savedValue = defaults.get(for: .doubleKey)
         XCTAssertEqual(savedValue, value)
         
     }
@@ -97,16 +94,15 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let value = "a string"
-        let key = Key<String>("key")
         
         // When
-        defaults.set(value, for: key)
+        defaults.set(value, for: .stringKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.stringKey)
         XCTAssertTrue(hasKey)
         
-        let savedValue = defaults.get(for: key)
+        let savedValue = defaults.get(for: .stringKey)
         XCTAssertEqual(savedValue, value)
         
     }
@@ -115,16 +111,15 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let value = true
-        let key = Key<Bool>("key")
         
         // When
-        defaults.set(value, for: key)
+        defaults.set(value, for: .boolKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.boolKey)
         XCTAssertTrue(hasKey)
         
-        let savedValue = defaults.get(for: key)
+        let savedValue = defaults.get(for: .boolKey)
         XCTAssertEqual(savedValue, value)
         
     }
@@ -133,16 +128,15 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let value = Date()
-        let key = Key<Date>("key")
         
         // When
-        defaults.set(value, for: key)
+        defaults.set(value, for: .dateKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.dateKey)
         XCTAssertTrue(hasKey)
         
-        let savedValue = defaults.get(for: key)
+        let savedValue = defaults.get(for: .dateKey)
         XCTAssertEqual(savedValue, value)
         
     }
@@ -151,16 +145,15 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let values = [1,2,3,4]
-        let key = Key<[Int]>("key")
         
         // When
-        defaults.set(values, for: key)
+        defaults.set(values, for: .arrayOfIntegersKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.arrayOfIntegersKey)
         XCTAssertTrue(hasKey)
         
-        let savedValues = defaults.get(for: key)
+        let savedValues = defaults.get(for: .arrayOfIntegersKey)
         XCTAssertNotNil(savedValues)
         savedValues?.forEach({ (value) in
             XCTAssertTrue(savedValues?.contains(value) ?? false)
@@ -172,43 +165,34 @@ class DefaultsKitTests: XCTestCase {
         
         // Given
         let values = [1,2,3,4]
-        let key = Key<[Int]>("key")
         
         // When
-        defaults.set(values, for: key)
-        defaults.clear(key)
+        defaults.set(values, for: .arrayOfIntegersKey)
+        defaults.clear(.arrayOfIntegersKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.arrayOfIntegersKey)
         XCTAssertFalse(hasKey)
         
-        let savedValues = defaults.get(for: key)
+        let savedValues = defaults.get(for: .arrayOfIntegersKey)
         XCTAssertNil(savedValues)
         
     }
     
     func testSetObject() {
      
-        // Mocks
-        struct PersonMock: Codable {
-            let name: String
-            let age: Int
-            let children: [PersonMock]
-        }
-        
         // Given
         let child = PersonMock(name: "Anne Greenwell", age: 30, children: [])
         let person = PersonMock(name: "Bonnie Greenwell", age: 80, children: [child])
-        let key = Key<PersonMock>("personKey")
         
         // When
-        defaults.set(person, for: key)
+        defaults.set(person, for: .personMockKey)
         
         // Then
-        let hasKey = defaults.has(key)
+        let hasKey = defaults.has(.personMockKey)
         XCTAssertTrue(hasKey)
         
-        let savedPerson = defaults.get(for: key)
+        let savedPerson = defaults.get(for: .personMockKey)
         XCTAssertEqual(savedPerson?.name, "Bonnie Greenwell")
         XCTAssertEqual(savedPerson?.age, 80)
         XCTAssertEqual(savedPerson?.children.first?.name, "Anne Greenwell")

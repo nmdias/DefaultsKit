@@ -11,6 +11,12 @@
 		A0AC4AAF1F43853D0070F91D /* DefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */; };
 		A0AC4AB11F43853D0070F91D /* DefaultsKit.h in Headers */ = {isa = PBXBuildFile; fileRef = A0AC4AA31F43853D0070F91D /* DefaultsKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0AC4ABB1F4385500070F91D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4ABA1F4385500070F91D /* Defaults.swift */; };
+		A0DFDB0A20CD8C4F004A4C2F /* DefaultsKey + keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFDB0920CD8C4E004A4C2F /* DefaultsKey + keys.swift */; };
+		A0DFDB0B20CD8C4F004A4C2F /* DefaultsKey + keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFDB0920CD8C4E004A4C2F /* DefaultsKey + keys.swift */; };
+		A0DFDB0C20CD8C4F004A4C2F /* DefaultsKey + keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFDB0920CD8C4E004A4C2F /* DefaultsKey + keys.swift */; };
+		A0DFDB0E20CD8C58004A4C2F /* PersonMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFDB0D20CD8C58004A4C2F /* PersonMock.swift */; };
+		A0DFDB0F20CD8C58004A4C2F /* PersonMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFDB0D20CD8C58004A4C2F /* PersonMock.swift */; };
+		A0DFDB1020CD8C58004A4C2F /* PersonMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DFDB0D20CD8C58004A4C2F /* PersonMock.swift */; };
 		A0F000F61F48CEE500617715 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4ABA1F4385500070F91D /* Defaults.swift */; };
 		A0F001041F48CF9D00617715 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0AC4ABA1F4385500070F91D /* Defaults.swift */; };
 		A0F0011E1F48D0BD00617715 /* DefaultsKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0F000E91F48CECE00617715 /* DefaultsKit.framework */; };
@@ -51,6 +57,8 @@
 		A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsTests.swift; sourceTree = "<group>"; };
 		A0AC4AB01F43853D0070F91D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0AC4ABA1F4385500070F91D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		A0DFDB0920CD8C4E004A4C2F /* DefaultsKey + keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultsKey + keys.swift"; sourceTree = "<group>"; };
+		A0DFDB0D20CD8C58004A4C2F /* PersonMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonMock.swift; sourceTree = "<group>"; };
 		A0F000E91F48CECE00617715 /* DefaultsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DefaultsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F000FC1F48CF8200617715 /* DefaultsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DefaultsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0F001191F48D0BD00617715 /* DefaultsKit macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DefaultsKit macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,8 +149,10 @@
 		A0AC4AAD1F43853D0070F91D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				A0DFDB0920CD8C4E004A4C2F /* DefaultsKey + keys.swift */,
 				A0AC4AAE1F43853D0070F91D /* DefaultsTests.swift */,
 				A0AC4AB01F43853D0070F91D /* Info.plist */,
+				A0DFDB0D20CD8C58004A4C2F /* PersonMock.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -396,6 +406,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0AC4AAF1F43853D0070F91D /* DefaultsTests.swift in Sources */,
+				A0DFDB0A20CD8C4F004A4C2F /* DefaultsKey + keys.swift in Sources */,
+				A0DFDB0E20CD8C58004A4C2F /* PersonMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F001271F48D12900617715 /* DefaultsTests.swift in Sources */,
+				A0DFDB0C20CD8C4F004A4C2F /* DefaultsKey + keys.swift in Sources */,
+				A0DFDB1020CD8C58004A4C2F /* PersonMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +442,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F001381F48D35700617715 /* DefaultsTests.swift in Sources */,
+				A0DFDB0B20CD8C4F004A4C2F /* DefaultsKey + keys.swift in Sources */,
+				A0DFDB0F20CD8C58004A4C2F /* PersonMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

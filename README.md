@@ -41,6 +41,20 @@ if defaults.has(key) {
 ```
 > If you just need to know that a key/value pair exists, **without actually using the value**, use the `has()` method instead of the optional `get(for:key)`. For complex objects it will prevent any unnecessary deserialization. 
 
+### Implicit Member Expression
+
+You can find a convenience wrapper for your keys by extending `DefaultsKey`. This allows you use [Implicit Member Expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#//appleref/swift/grammar/implicit-member-expression):
+```swift
+// Extend with a custom key
+extension DefaultsKey {
+    static let someKey = Key<String>("someKey")
+}
+
+// Then use it like this
+defaults.set("Some key", for: .someKey)
+defaults.get(for: .someKey) // Output: Some key
+```
+
 ### Complex objects
 
 To store a complex object just conform to the [Codable](https://developer.apple.com/documentation/swift/codable) protocol:
