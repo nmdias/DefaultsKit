@@ -8,9 +8,11 @@
 
 [English](README.md)
 
+
+DefaultsKit 是一个利用 **Swift 4** 强大的  [Codable](https://developer.apple.com/documentation/swift/codable)，在  [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults) 基础上提供一层**简单**且**强大**的封装。它仅使用少于 70 行代码来实现这些功能。
+
 如何安装 >> [`指南`](https://github.com/nmdias/DefaultsKit/blob/master/INSTALL.md) <<
 
-DefaultsKit 是一个利用 Swift4 强大的 Codable，在 UserDefaults 基础上提供一层简单且强大的封装。它仅使用少于 70 行代码来实现这些功能。
 
 ## 使用说明
 
@@ -33,7 +35,7 @@ defaults.set("Codable FTW 😃", for: key)
 defaults.get(for: key) // 输出: Codable FTW 😃
 ```
 
-## 判断某个键是否含有某个值
+### 判断某个键是否含有某个值
 
 ```swift
 if defaults.has(key) { 
@@ -41,10 +43,23 @@ if defaults.has(key) {
 }
 ```
 
-> 如果你只需要知道该键值对 (key,value) 是否存在，而不需要使用该 key 使用的返回值 (value)，你可以使用 `has()`这个方法代替可选的 `get(for:key)` 方法。对于一些复杂的对象，它可以减少避免一些不必要的反序列化。
+> 如果你只需要知道该键值对 (key,value) 是否存在，**而不需要使用该 key 使用的返回值 (value)**，你可以使用 `has()`这个方法代替可选的 `get(for:key)` 方法。对于一些复杂的对象，它可以减少避免一些不必要的反序列化。
 
+### 隐式成员表达式
 
-### 复杂的对象存储
+通过扩展`DefaultsKey`，你可以方便的包装你的键。这允许你使用[隐式成员表达式](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#//appleref/swift/grammar/implicit-member-expression)：
+```swift
+// 使用自定义键扩展
+extension DefaultsKey {
+    static let someKey = Key<String>("someKey")
+}
+
+// 然后这样使用
+defaults.set("Some key", for: .someKey)
+defaults.get(for: .someKey) // 输出: Some key
+```
+
+### 复杂对象
 
 存储一个遵循 [Codable](https://developer.apple.com/documentation/swift/codable) 协议的复杂对象：
 
@@ -53,8 +68,12 @@ struct Person: Codable {
     let name: String
     let age: Int
 }
+```
 
-// 然后创建一个键
+然后：
+
+```swift
+// 创建一个键
 let key = Key<Person>("personKey")
 
 // 获取一个遵循 Codable 协议的枚举，结构体或者类的实例
@@ -62,15 +81,19 @@ let person = Person(name: "Bonnie Greenwell", age: 80)
 
 // 赋值
 defaults.set(person, for: key)
+```
 
-// 最后查看 key 返回值的 value
+最后：
+
+```swift
+// 查看 key 返回值的 value
 let person = defaults.get(for: key)
 person?.name // Bonnie Greenwell
 person?.age  // 80
 ```
 ### 嵌套对象的存储
 
-只要是遵循 Codable 协议的对象，你都可以嵌套地使用它们。
+只要是遵循 `Codable` 协议的对象，你都可以嵌套地使用它们。
 
 ```swift
 enum Pet: String, Codable {
