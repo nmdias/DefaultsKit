@@ -152,3 +152,28 @@ public final class Defaults {
     
 }
 
+// MARK: ValueType with RawRepresentable conformance
+
+extension Defaults {
+    /// Returns the value associated with the specified key.
+    ///
+    /// - Parameter key: The key.
+    /// - Returns: A `ValueType` or nil if the key was not found.
+    public func get<ValueType: RawRepresentable>(for key: Key<ValueType>) -> ValueType? where ValueType.RawValue: Codable {
+        let convertedKey = Key<ValueType.RawValue>(key._key)
+        if let raw = get(for: convertedKey) {
+            return ValueType(rawValue: raw)
+        }
+        return nil
+    }
+
+    /// Sets a value associated with the specified key.
+    ///
+    /// - Parameters:
+    ///   - some: The value to set.
+    ///   - key: The associated `Key<ValueType>`.
+    public func set<ValueType: RawRepresentable>(_ value: ValueType, for key: Key<ValueType>) where ValueType.RawValue: Codable {
+        let convertedKey = Key<ValueType.RawValue>(key._key)
+        set(value.rawValue, for: convertedKey)
+    }
+}
