@@ -106,7 +106,7 @@ class DefaultsKitTests: XCTestCase {
         XCTAssertEqual(savedValue, value)
         
     }
-    
+
     func testBool() {
         
         // Given
@@ -139,6 +139,37 @@ class DefaultsKitTests: XCTestCase {
         let savedValue = defaults.get(for: .dateKey)
         XCTAssertEqual(savedValue, value)
         
+    }
+
+    func testEnum() {
+
+        // Give
+        let value = EnumMock.three
+
+        // When
+        defaults.set(value, for: .enumKey)
+
+        // Then
+        let hasKey = defaults.has(.enumKey)
+        XCTAssert(hasKey)
+
+        let savedValue = defaults.get(for: .enumKey)
+        XCTAssertEqual(savedValue, value)
+    }
+
+    func testOptionSet() {
+        // Give
+        let value = OptionSetMock.option3
+
+        // When
+        defaults.set(value, for: .optionSetKey)
+
+        // Then
+        let hasKey = defaults.has(.optionSetKey)
+        XCTAssert(hasKey)
+
+        let savedValue = defaults.get(for: .optionSetKey)
+        XCTAssertEqual(savedValue, value)
     }
     
     func testSet() {

@@ -1,5 +1,5 @@
 //
-//  DefaultsKey + keys.swift
+//  PersonMock.swift
 //
 //  Copyright (c) 2017 - 2018 Nuno Manuel Dias
 //
@@ -23,17 +23,14 @@
 //
 
 import Foundation
-@testable import DefaultsKit
 
-extension DefaultsKey {
-    static let integerKey = Key<Int>("integerKey")
-    static let floatKey = Key<Float>("floatKey")
-    static let doubleKey = Key<Double>("doubleKey")
-    static let stringKey = Key<String>("stringKey")
-    static let boolKey = Key<Bool>("boolKey")
-    static let dateKey = Key<Date>("dateKey")
-    static let enumKey = Key<EnumMock>("enumKey")
-    static let optionSetKey = Key<OptionSetMock>("optionSetKey")
-    static let arrayOfIntegersKey = Key<[Int]>("arrayOfIntegersKey")
-    static let personMockKey = Key<PersonMock>("personMockKey")
+enum EnumMock: Int, Codable {
+    case one, two, three
+}
+
+struct OptionSetMock: OptionSet, Codable {
+    let rawValue: Int
+    static let option1 = OptionSetMock(rawValue: 1)
+    static let option2 = OptionSetMock(rawValue: 2)
+    static let option3 = OptionSetMock(rawValue: 3)
 }
