@@ -4,7 +4,7 @@
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/DefaultsKit)
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
 [![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
-[![swift](https://img.shields.io/badge/swift-4.0+-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
+[![swift](https://img.shields.io/badge/swift-4.2-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
 
 [简体中文](README.zh-CN.md)
 
