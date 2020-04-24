@@ -310,23 +310,27 @@
 				TargetAttributes = {
 					A0AC4A9F1F43853D0070F91D = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 					};
 					A0AC4AA81F43853D0070F91D = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1130;
 					};
 					A0F000E81F48CECE00617715 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1130;
 					};
 					A0F000FB1F48CF8200617715 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1130;
 					};
 					A0F001181F48D0BD00617715 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1130;
 					};
 					A0F0012B1F48D34200617715 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -612,7 +616,7 @@
 				PRODUCT_NAME = DefaultsKit;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -632,7 +636,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmdias.DefaultsKit;
 				PRODUCT_NAME = DefaultsKit;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -645,7 +649,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmdias.DefaultsKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -658,7 +662,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nmdias.DefaultsKitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -681,7 +685,7 @@
 				PRODUCT_NAME = DefaultsKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -703,7 +707,7 @@
 				PRODUCT_NAME = DefaultsKit;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -722,7 +726,7 @@
 				PRODUCT_NAME = DefaultsKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
@@ -743,7 +747,7 @@
 				PRODUCT_NAME = DefaultsKit;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
@@ -760,7 +764,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nmdias.DefaultsKit-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -775,7 +779,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nmdias.DefaultsKit-macOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -787,7 +791,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nmdias.DefaultsKit-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
@@ -801,7 +805,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nmdias.DefaultsKit-tvOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 11.0;
 			};
