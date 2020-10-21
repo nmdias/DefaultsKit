@@ -62,7 +62,6 @@ public final class Defaults {
     /// - Parameter key: The key.
     public func clear<ValueType>(_ key: Key<ValueType>) {
         userDefaults.set(nil, forKey: key._key)
-        userDefaults.synchronize()
     }
     
     /// Checks if there is a value associated with the specified key.
@@ -115,7 +114,6 @@ public final class Defaults {
             let encoder = JSONEncoder()
             let encoded = try encoder.encode(value)
             userDefaults.set(encoded, forKey: key._key)
-            userDefaults.synchronize()
         } catch {
             #if DEBUG
                 print(error)
