@@ -108,6 +108,7 @@ public final class Defaults {
     public func set<ValueType>(_ value: ValueType, for key: Key<ValueType>) {
         if isSwiftCodableType(ValueType.self) || isFoundationCodableType(ValueType.self) {
             userDefaults.set(value, forKey: key._key)
+            userDefaults.synchronize()
             return
         }
         
