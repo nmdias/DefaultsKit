@@ -1,5 +1,5 @@
 //
-//  PersonMock.swift
+//  Mocks.swift
 //
 //  Copyright (c) 2017 - 2024 Nuno Manuel Dias
 //
@@ -28,4 +28,19 @@ struct PersonMock: Codable, Equatable {
   let name: String
   let age: Int
   let children: [PersonMock]
+}
+
+// MARK: - RawRepresentable
+
+enum EnumMock: Int, Codable {
+  case one
+  case two
+  case three
+}
+
+struct OptionSetMock: OptionSet, Codable {
+  let rawValue: Int
+  static let option1 = OptionSetMock(rawValue: 1)
+  static let option2 = OptionSetMock(rawValue: 2)
+  static let option3 = OptionSetMock(rawValue: 3)
 }
