@@ -1,20 +1,21 @@
-
 ![DefaultsKit](/DefaultsKit.png?raw=true)
+
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/FeedKit)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FFeedKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/FeedKit)
 
 [![cocoapods compatible](https://img.shields.io/badge/cocoapods-compatible-brightgreen.svg)](https://cocoapods.org/pods/DefaultsKit)
 [![carthage compatible](https://img.shields.io/badge/carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
-[![language](https://img.shields.io/badge/spm-compatible-brightgreen.svg)](https://swift.org)
-[![swift](https://img.shields.io/badge/swift-4.2-orange.svg)](https://github.com/nmdias/DefaultsKit/releases)
 
 [简体中文](README.zh-CN.md)
 
-DefaultsKit leverages **Swift 4**'s powerful [Codable](https://developer.apple.com/documentation/swift/codable) capabilities to provide a **Simple** and **Strongly Typed** wrapper on top of [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults). It uses less than 70 lines of code to acomplish this.
+DefaultsKit is a lightweight Swift library that builds on [Codable](https://developer.apple.com/documentation/swift/codable) to offer a **Simple**, **Strongly Typed** and compact wrapper for [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults). With fewer than 100 lines of code, it’s both easy to use and highly efficient.
 
 Installation >> [`instructions`](https://github.com/nmdias/DefaultsKit/blob/master/INSTALL.md) <<
 
 ## Usage
 
 Instantiate, or get a `shared` instance of `Defaults`
+
 ```swift
 let defaults = Defaults() // or Defaults.shared
 ```
@@ -35,19 +36,21 @@ defaults.get(for: key) // Output: Codable FTW 😃
 ### Check if a key has a value:
 
 ```swift
-if defaults.has(key) { 
+if defaults.has(key) {
     // Do your thing
 }
 ```
-> If you just need to know that a key/value pair exists, **without actually using the value**, use the `has()` method instead of the optional `get(for:key)`. For complex objects it will prevent any unnecessary deserialization. 
+
+> If you just need to know that a key/value pair exists, **without actually using the value**, use the `has()` method instead of the optional `get(for:key)`. For complex objects it will prevent any unnecessary deserialization.
 
 ### Implicit Member Expression
 
 You can find a convenience wrapper for your keys by extending `DefaultsKey`. This allows you use [Implicit Member Expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#//appleref/swift/grammar/implicit-member-expression):
+
 ```swift
 // Extend with a custom key
 extension DefaultsKey {
-    static let someKey = Key<String>("someKey")
+    static var someKey: Key<Int> { Key("someKey") }
 }
 
 // Then use it like this
@@ -89,6 +92,7 @@ person?.age  // 80
 ```
 
 ### Nested Objects
+
 You can also use nested objects as long as they conform to the `Codable` protocol:
 
 ```swift
@@ -119,7 +123,9 @@ person?.pets.first  // cat
 DefaultsKit is released under the MIT license. See [LICENSE](https://github.com/nmdias/DefaultsKit/blob/master/LICENSE) for details.
 
 ### Help Wanted
+
 #### Review/Translate [README.zh-CN.md](README.zh-CN.md) to Chinese
+
 Chinese is the #1 spoken language in the world and I'd love to have DefaultsKit be more inclusive, unfortunately I don't speak Chinese. If you know chinese, and would like to help out, please see [issue #1](https://github.com/nmdias/DefaultsKit/issues/1)
 
 Thank you 🙏
