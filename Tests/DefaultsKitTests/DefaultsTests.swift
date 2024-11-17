@@ -213,4 +213,34 @@ struct DefaultsKitTests {
     let actual = defaults.get(for: .personMockKey)
     #expect(expected == actual)
   }
+
+  @Test
+  func testThreadSafe() async throws {
+    // Given
+    let defaults = Defaults.shared
+    let iterations = 10000
+
+    // When
+    var expected = 0
+    var actual = 0
+    
+    await withTaskGroup(of: Void.self) { taskGroup in
+      for i in 1 ... iterations {
+        taskGroup.addTask {
+          defaults.set(i, for: .integerKey) // Write a value
+          if let value = defaults.get(for: .integerKey) {
+            Task.detached {
+              actual += value
+            }
+          }
+          Task.detached {
+            expected += i
+          }
+        }
+      }
+    }
+
+    // Then
+    #expect(expected == actual)
+  }
 }
