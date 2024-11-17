@@ -24,13 +24,13 @@
 
 import Foundation
 
-public class DefaultsKey {}
+public protocol DefaultsKey {}
 
 /// Represents a `Key` with an associated generic value type conforming to the
 /// `Codable` protocol.
 ///
 ///     static let someKey = Key<ValueType>("someKey")
-public final class Key<ValueType: Codable>: DefaultsKey {
+public struct Key<ValueType: Codable>: DefaultsKey {
   fileprivate let _key: String
   public init(_ key: String) {
     _key = key
@@ -42,12 +42,12 @@ public final class Key<ValueType: Codable>: DefaultsKey {
 /// - Warning
 /// These should not be used to store sensitive information that could compromise
 /// the application or the user's security and privacy.
-public final class Defaults {
+public struct Defaults {
   private var userDefaults: UserDefaults
 
   /// Shared instance of `Defaults`, used for ad-hoc access to the user's
   /// defaults database throughout the app.
-  public static let shared = Defaults()
+  nonisolated(unsafe) public static let shared = Defaults()
 
   /// An instance of `Defaults` with the specified `UserDefaults` instance.
   ///
