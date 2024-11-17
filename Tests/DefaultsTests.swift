@@ -23,191 +23,195 @@
 //
 
 @testable import DefaultsKit
-import XCTest
 
-class DefaultsKitTests: XCTestCase {
-  var defaults: Defaults!
+import Foundation
+import Testing
 
-  override func setUp() {
-    super.setUp()
-    defaults = Defaults()
-  }
-
-  override func tearDown() {
-    super.tearDown()
-    defaults = nil
-  }
-
-  func testInteger() {
+@Suite("DefaultKit")
+struct DefaultsKitTests {
+  @Test func testInteger() {
     // Given
-    let value = 123
+    let defaults = Defaults()
+    let expected: Int = 123
 
     // When
-    defaults.set(value, for: .integerKey)
+    defaults.set(expected, for: .integerKey)
 
     // Then
     let hasKey = defaults.has(.integerKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .integerKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .integerKey)
+    #expect(expected == actual)
   }
 
-  func testFloat() {
+  @Test func testFloat() {
     // Given
-    let value: Float = 123.1
+    let defaults = Defaults()
+    let expected: Float = 123.1
 
     // When
-    defaults.set(value, for: .floatKey)
+    defaults.set(expected, for: .floatKey)
 
     // Then
     let hasKey = defaults.has(.floatKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .floatKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .floatKey)
+    #expect(expected == actual)
   }
 
-  func testDouble() {
+  @Test func testDouble() {
     // Given
-    let value: Double = 123.1
+    let defaults = Defaults()
+    let expected: Double = 123.1
 
     // When
-    defaults.set(value, for: .doubleKey)
+    defaults.set(expected, for: .doubleKey)
 
     // Then
     let hasKey = defaults.has(.doubleKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .doubleKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .doubleKey)
+    #expect(expected == actual)
   }
 
-  func testString() {
+  @Test func testString() {
     // Given
-    let value = "a string"
+    let defaults = Defaults()
+    let expected: String = "a string"
 
     // When
-    defaults.set(value, for: .stringKey)
+    defaults.set(expected, for: .stringKey)
 
     // Then
     let hasKey = defaults.has(.stringKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .stringKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .stringKey)
+    #expect(expected == actual)
   }
 
-  func testBool() {
+  @Test func testBool() {
     // Given
-    let value = true
+    let defaults = Defaults()
+    let expected: Bool = true
 
     // When
-    defaults.set(value, for: .boolKey)
+    defaults.set(expected, for: .boolKey)
 
     // Then
     let hasKey = defaults.has(.boolKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .boolKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .boolKey)
+    #expect(expected == actual)
   }
 
-  func testDate() {
+  @Test func testDate() {
     // Given
-    let value = Date()
+    let defaults = Defaults()
+    let expected: Date = Date()
 
     // When
-    defaults.set(value, for: .dateKey)
+    defaults.set(expected, for: .dateKey)
 
     // Then
     let hasKey = defaults.has(.dateKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .dateKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .dateKey)
+    #expect(expected == actual)
   }
 
-  func testEnum() {
-    // Give
-    let value = EnumMock.three
+  @Test func testEnum() {
+    // Given
+    let defaults = Defaults()
+    let expected: EnumMock = .three
 
     // When
-    defaults.set(value, for: .enumKey)
+    defaults.set(expected, for: .enumKey)
 
     // Then
     let hasKey = defaults.has(.enumKey)
-    XCTAssert(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .enumKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .enumKey)
+    #expect(expected == actual)
   }
 
-  func testOptionSet() {
-    // Give
-    let value = OptionSetMock.option3
+  @Test func testOptionSet() {
+    // Given
+    let defaults = Defaults()
+    let expected: OptionSetMock = .option3
 
     // When
-    defaults.set(value, for: .optionSetKey)
+    defaults.set(expected, for: .optionSetKey)
 
     // Then
     let hasKey = defaults.has(.optionSetKey)
-    XCTAssert(hasKey)
+    #expect(hasKey)
 
-    let savedValue = defaults.get(for: .optionSetKey)
-    XCTAssertEqual(savedValue, value)
+    let actual = defaults.get(for: .optionSetKey)
+    #expect(expected == actual)
   }
 
-  func testSet() {
+  @Test func testSet() {
     // Given
-    let values = [1, 2, 3, 4]
+    let defaults = Defaults()
+    let expected: [Int] = [1, 2, 3, 4]
 
     // When
-    defaults.set(values, for: .arrayOfIntegersKey)
+    defaults.set(expected, for: .arrayOfIntegersKey)
 
     // Then
     let hasKey = defaults.has(.arrayOfIntegersKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedValues = defaults.get(for: .arrayOfIntegersKey)
-    XCTAssertNotNil(savedValues)
-    savedValues?.forEach({ value in
-      XCTAssertTrue(savedValues?.contains(value) ?? false)
-    })
+    let actual = defaults.get(for: .arrayOfIntegersKey)
+    #expect(expected == actual)
   }
 
-  func testClear() {
+  @Test func testClear() {
     // Given
-    let values = [1, 2, 3, 4]
+    let defaults = Defaults()
+    let integers: [Int] = [1, 2, 3, 4]
+    let expected: [Int]? = nil
 
     // When
-    defaults.set(values, for: .arrayOfIntegersKey)
+    defaults.set(integers, for: .arrayOfIntegersKey)
+
+    // Then
     defaults.clear(.arrayOfIntegersKey)
 
-    // Then
-    let hasKey = defaults.has(.arrayOfIntegersKey)
-    XCTAssertFalse(hasKey)
-
-    let savedValues = defaults.get(for: .arrayOfIntegersKey)
-    XCTAssertNil(savedValues)
+    let actual = defaults.get(for: .arrayOfIntegersKey)
+    #expect(expected == actual)
   }
 
-  func testSetObject() {
-    // Given
-    let child = PersonMock(name: "Anne Greenwell", age: 30, children: [])
-    let person = PersonMock(name: "Bonnie Greenwell", age: 80, children: [child])
+  @Test func testSetStruct() {
+    let defaults = Defaults()
+    let expected: PersonMock = .init(
+      name: "Bonnie Greenwell",
+      age: 80,
+      children: [
+        .init(
+          name: "Anne Greenwell",
+          age: 30,
+          children: []
+        ),
+      ]
+    )
 
     // When
-    defaults.set(person, for: .personMockKey)
+    defaults.set(expected, for: .personMockKey)
 
     // Then
     let hasKey = defaults.has(.personMockKey)
-    XCTAssertTrue(hasKey)
+    #expect(hasKey)
 
-    let savedPerson = defaults.get(for: .personMockKey)
-    XCTAssertEqual(savedPerson?.name, "Bonnie Greenwell")
-    XCTAssertEqual(savedPerson?.age, 80)
-    XCTAssertEqual(savedPerson?.children.first?.name, "Anne Greenwell")
-    XCTAssertEqual(savedPerson?.children.first?.age, 30)
+    let actual = defaults.get(for: .personMockKey)
+    #expect(expected == actual)
   }
 }
+
