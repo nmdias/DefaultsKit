@@ -1,22 +1,27 @@
 # This workflow will build a Swift project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-swift
 
-name: Swift
+name: Build and Test DefaultsKit
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main]
   pull_request:
-    branches: [ "main" ]
+    branches: [main]
 
 jobs:
   build:
-
-    runs-on: macos-latest
+    runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 16.0
+        run: sudo xcode-select -s /Applications/Xcode.app/
+
+      - name: Build Package
+        run: swift build
+
+      - name: Run Tests
+        run: swift test
