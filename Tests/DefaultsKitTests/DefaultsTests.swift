@@ -160,16 +160,16 @@ struct DefaultsKitTests {
   @Test func testSet() {
     // Given
     let defaults = Defaults()
-    let expected: [Int] = [1, 2, 3, 4]
+    let expected: Set<Int> = [1, 2, 3, 4]
 
     // When
-    defaults.set(expected, for: .arrayOfIntegersKey)
+    defaults.set(expected, for: .setOfIntegersKey)
 
     // Then
-    let hasKey = defaults.has(.arrayOfIntegersKey)
+    let hasKey = defaults.has(.setOfIntegersKey)
     #expect(hasKey)
 
-    let actual = defaults.get(for: .arrayOfIntegersKey)
+    let actual = defaults.get(for: .setOfIntegersKey)
     #expect(expected == actual)
   }
 

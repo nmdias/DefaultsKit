@@ -35,5 +35,6 @@ extension DefaultsKey {
   static var enumKey: Key<EnumMock> { Key("enumKey") }
   static var optionSetKey: Key<OptionSetMock> { Key("optionSetKey") }
   static var arrayOfIntegersKey: Key<[Int]> { Key("arrayOfIntegersKey") }
+  static var setOfIntegersKey: Key<Set<Int>> { Key("setOfIntegersKey") }
   static var personMockKey: Key<PersonMock> { Key("personMockKey") }
 }
