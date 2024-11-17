@@ -26,14 +26,14 @@
 import Foundation
 
 extension DefaultsKey {
-  static var integerKey: Key<Int> { Key<Int>("integerKey") }
-  static var floatKey: Key<Float> { Key<Float>("floatKey") }
-  static var doubleKey: Key<Double> { Key<Double>("doubleKey") }
-  static var stringKey: Key<String> { Key<String>("stringKey") }
-  static var boolKey: Key<Bool> { Key<Bool>("boolKey") }
-  static var dateKey: Key<Date> { Key<Date>("dateKey") }
-  static var enumKey: Key<EnumMock> { Key<EnumMock>("enumKey") }
-  static var optionSetKey: Key<OptionSetMock> { Key<OptionSetMock>("optionSetKey") }
-  static var arrayOfIntegersKey: Key<[Int]> { Key<[Int]>("arrayOfIntegersKey") }
-  static var personMockKey: Key<PersonMock> { Key<PersonMock>("personMockKey") }
+  static var integerKey: Key<Int> { Key("integerKey") }
+  static var floatKey: Key<Float> { Key("floatKey") }
+  static var doubleKey: Key<Double> { Key("doubleKey") }
+  static var stringKey: Key<String> { Key("stringKey") }
+  static var boolKey: Key<Bool> { Key("boolKey") }
+  static var dateKey: Key<Date> { Key("dateKey") }
+  static var enumKey: Key<EnumMock> { Key("enumKey") }
+  static var optionSetKey: Key<OptionSetMock> { Key("optionSetKey") }
+  static var arrayOfIntegersKey: Key<[Int]> { Key("arrayOfIntegersKey") }
+  static var personMockKey: Key<PersonMock> { Key("personMockKey") }
 }
