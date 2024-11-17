@@ -1,7 +1,7 @@
 //
 //  DefaultsKey + keys.swift
 //
-//  Copyright (c) 2017 - 2018 Nuno Manuel Dias
+//  Copyright (c) 2017 - 2024 Nuno Manuel Dias
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -22,18 +22,18 @@
 //  SOFTWARE.
 //
 
-import Foundation
 @testable import DefaultsKit
+import Foundation
 
 extension DefaultsKey {
-    static let integerKey = Key<Int>("integerKey")
-    static let floatKey = Key<Float>("floatKey")
-    static let doubleKey = Key<Double>("doubleKey")
-    static let stringKey = Key<String>("stringKey")
-    static let boolKey = Key<Bool>("boolKey")
-    static let dateKey = Key<Date>("dateKey")
-    static let enumKey = Key<EnumMock>("enumKey")
-    static let optionSetKey = Key<OptionSetMock>("optionSetKey")
-    static let arrayOfIntegersKey = Key<[Int]>("arrayOfIntegersKey")
-    static let personMockKey = Key<PersonMock>("personMockKey")
+  static var integerKey: Key<Int> { Key<Int>("integerKey") }
+  static var floatKey: Key<Float> { Key<Float>("floatKey") }
+  static var doubleKey: Key<Double> { Key<Double>("doubleKey") }
+  static var stringKey: Key<String> { Key<String>("stringKey") }
+  static var boolKey: Key<Bool> { Key<Bool>("boolKey") }
+  static var dateKey: Key<Date> { Key<Date>("dateKey") }
+  static var enumKey: Key<EnumMock> { Key<EnumMock>("enumKey") }
+  static var optionSetKey: Key<OptionSetMock> { Key<OptionSetMock>("optionSetKey") }
+  static var arrayOfIntegersKey: Key<[Int]> { Key<[Int]>("arrayOfIntegersKey") }
+  static var personMockKey: Key<PersonMock> { Key<PersonMock>("personMockKey") }
 }
