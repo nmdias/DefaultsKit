@@ -31,5 +31,3 @@ FOUNDATION_EXPORT double DefaultsKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char DefaultsKitVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <DefaultsKit/PublicHeader.h>
-
-
