@@ -47,7 +47,7 @@ public struct Defaults {
 
   /// Shared instance of `Defaults`, used for ad-hoc access to the user's
   /// defaults database throughout the app.
-  nonisolated(unsafe) public static let shared = Defaults()
+  public nonisolated(unsafe) static let shared = Defaults()
 
   /// An instance of `Defaults` with the specified `UserDefaults` instance.
   ///

@@ -25,12 +25,12 @@
 import Foundation
 
 enum EnumMock: Int, Codable {
-    case one, two, three
+  case one, two, three
 }
 
 struct OptionSetMock: OptionSet, Codable {
-    let rawValue: Int
-    static let option1 = OptionSetMock(rawValue: 1)
-    static let option2 = OptionSetMock(rawValue: 2)
-    static let option3 = OptionSetMock(rawValue: 3)
+  let rawValue: Int
+  static let option1 = OptionSetMock(rawValue: 1)
+  static let option2 = OptionSetMock(rawValue: 2)
+  static let option3 = OptionSetMock(rawValue: 3)
 }

@@ -25,7 +25,7 @@
 import Foundation
 
 struct PersonMock: Codable {
-    let name: String
-    let age: Int
-    let children: [PersonMock]
+  let name: String
+  let age: Int
+  let children: [PersonMock]
 }
