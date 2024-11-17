@@ -27,7 +27,7 @@
 import Foundation
 import Testing
 
-@Suite("DefaultKit")
+@Suite("DefaultsKit")
 struct DefaultsKitTests {
   @Test func testInteger() {
     // Given
