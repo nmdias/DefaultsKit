@@ -214,4 +214,3 @@ struct DefaultsKitTests {
     #expect(expected == actual)
   }
 }
-
