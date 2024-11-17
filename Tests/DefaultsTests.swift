@@ -27,7 +27,7 @@
 import Foundation
 import Testing
 
-@Suite("DefaultsKit")
+@Suite("DefaultsKit", .serialized)
 struct DefaultsKitTests {
   @Test func testInteger() {
     // Given
