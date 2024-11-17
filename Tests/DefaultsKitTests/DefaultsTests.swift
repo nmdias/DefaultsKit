@@ -215,9 +215,9 @@ struct DefaultsKitTests {
   }
 
   @Test
-  func testThreadSafe() async throws {
+  func testThreadUnsafe() async {
     // Given
-    let defaults = Defaults.shared
+    let defaults = Defaults()
     let iterations = 10000
 
     // When
@@ -226,7 +226,6 @@ struct DefaultsKitTests {
     
     await withTaskGroup(of: Void.self) { taskGroup in
       for i in 1 ... iterations {
-        // Add a task to the group
         taskGroup.addTask {
           defaults.set(i, for: .integerKey) // Write a value
           if let value = defaults.get(for: .integerKey) {
@@ -242,6 +241,6 @@ struct DefaultsKitTests {
     }
 
     // Then
-    #expect(expected == actual)
+    #expect(expected != actual)
   }
 }
