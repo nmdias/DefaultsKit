@@ -1,6 +1,6 @@
 ![DefaultsKit](/DefaultsKit.png?raw=true)
 
-![CI](https://github.com/nmdias/DefaultsKit/actions/workflows/swift.yml/badge.svg)
+![CI](https://github.com/nmdias/DefaultsKit/actions/workflows/ci.yml/badge.svg)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FDefaultsKit%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/nmdias/DefaultsKit)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fnmdias%2FDefaultsKit%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/nmdias/DefaultsKit)
 
